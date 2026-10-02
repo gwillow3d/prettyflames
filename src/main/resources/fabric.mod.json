@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "prettyflames",
+  "version": "${version}",
+  "name": "Pretty Flames",
+  "description": "Makes flames nicer and stuff",
+  "authors": ["Winkassador!"],
+  "contact": {"Winkassador!": "https://github.com/gwillow3d/"},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/prettyflames/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "net.wkdr.prettyflames.client.PrettyFlamesDataGenerator"
+    ],
+    "client": [
+      "net.wkdr.prettyflames.client.PrettyFlamesClient"
+    ],
+    "main": [
+      "net.wkdr.prettyflames.PrettyFlames"
+    ]
+  },
+  "mixins": [
+    "prettyflames.mixins.json", {
+      "config": "prettyflames.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  },
+  "suggests": {
+    "modmenu": "${modmenu_version}",
+    "cloth": "${cloth_version}"
+  },
+  "custom": {
+    "prettyflames": {
+      "links": {
+        "prettyflames.github": "https://github.com/gwillow3d/prettyflames/"
+      },
+      "update_checker": true
+    }
+  }
+}

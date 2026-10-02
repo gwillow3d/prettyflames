@@ -16,9 +16,11 @@ public class PrettyFlamesBlocks {
     public static void init() {}
 
     public static final Block COPPER_FIRE;
+    public static final Block SULFUR_FIRE;
 
     static {
-        COPPER_FIRE = register(PrettyFlamesBlockIds.COPPER_FIRE_BLOCK, CopperFireBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).replaceable().noCollision().instabreak().lightLevel((state) -> 7).sound(SoundType.WOOL).pushReaction(PushReaction.POPPED));
+        COPPER_FIRE = register(PrettyFlamesBlockIds.COPPER_FIRE_BLOCK, CopperFireBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).replaceable().noCollision().instabreak().lightLevel((_) -> 7).sound(SoundType.WOOL).pushReaction(PushReaction.POPPED));
+        SULFUR_FIRE = register(PrettyFlamesBlockIds.SULFUR_FIRE_BLOCK, SulfurFireBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).replaceable().noCollision().instabreak().lightLevel((_) -> 14).sound(SoundType.WOOL).pushReaction(PushReaction.POPPED));
     }
 
     private static Block register(ResourceKey<Block> id, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties properties) {

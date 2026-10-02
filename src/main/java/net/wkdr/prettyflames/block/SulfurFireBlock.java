@@ -7,13 +7,12 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.wkdr.prettyflames.tags.PrettyFlamesBlockTags;
 
-public class CopperFireBlock extends BaseFireBlock {
-    public CopperFireBlock(final BlockBehaviour.Properties properties) {
-        super(properties, 2.5F);
+public class SulfurFireBlock extends BaseFireBlock {
+    public SulfurFireBlock(final Properties properties) {
+        super(properties, 3.0f);
     }
 
     protected BlockState updateShape(final BlockState state, final LevelReader level, final ScheduledTickAccess ticks, final BlockPos pos, final Direction directionToNeighbour, final BlockPos neighbourPos, final BlockState neighbourState, final RandomSource random) {
@@ -25,7 +24,7 @@ public class CopperFireBlock extends BaseFireBlock {
     }
 
     public static boolean canSurviveOnBlock(final BlockState state) {
-        return state.is(PrettyFlamesBlockTags.COPPER_IGNITABLE);
+        return state.is(PrettyFlamesBlockTags.SULFUR_IGNITABLE);
     }
 
     protected boolean canBurn(final BlockState state) {

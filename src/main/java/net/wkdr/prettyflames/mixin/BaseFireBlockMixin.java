@@ -11,6 +11,7 @@ import net.wkdr.prettyflames.FlameAttachments;
 import net.wkdr.prettyflames.FlameType;
 import net.wkdr.prettyflames.block.CopperFireBlock;
 import net.wkdr.prettyflames.block.PrettyFlamesBlocks;
+import net.wkdr.prettyflames.block.SulfurFireBlock;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -33,7 +34,11 @@ public class BaseFireBlockMixin {
         BlockPos below = pos.below();
         BlockState belowState = level.getBlockState(below);
 
-        if (CopperFireBlock.canSurviveOnBlock(belowState)) {
+        if(SulfurFireBlock.canSurviveOnBlock(belowState)) {
+            cir.setReturnValue(PrettyFlamesBlocks.SULFUR_FIRE.defaultBlockState());
+            cir.cancel();
+        }
+        else if (CopperFireBlock.canSurviveOnBlock(belowState)) {
             cir.setReturnValue(PrettyFlamesBlocks.COPPER_FIRE.defaultBlockState());
             cir.cancel();
         }
@@ -42,6 +47,7 @@ public class BaseFireBlockMixin {
     @Inject(method = "entityInside", at = @At("HEAD"))
     private void prettyFlames$entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean isPrecise, CallbackInfo ci) {
         FlameType type = FlameType.Normal;
+
         if(fireDamage > 1.0f) {
             type = fireDamage == 2.0f ? FlameType.Soul : FlameType.Copper;
         }

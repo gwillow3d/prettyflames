@@ -7,12 +7,12 @@ public class PrettyFlamesBlockTags {
 
     public static void init() {}
 
-    public static final TagKey<Block> COPPER_FIRE_BURN_INDEFINITELY;
-    public static final TagKey<Block> COPPER_FIRE_IGNITABLE;
+    public static final TagKey<Block> COPPER_IGNITABLE;
+    public static final TagKey<Block> SULFUR_IGNITABLE;
 
     static {
-        COPPER_FIRE_BURN_INDEFINITELY = PrettyFlamesBlockItemTags.COPPER_FIRE_BURN_INDEFINITELY.block();
-        COPPER_FIRE_IGNITABLE = PrettyFlamesBlockItemTags.COPPER_FIRE_IGNITABLE.block();
+        COPPER_IGNITABLE = PrettyFlamesBlockItemTags.COPPER_IGNITABLE.block();
+        SULFUR_IGNITABLE = PrettyFlamesBlockItemTags.SULFUR_IGNITABLE.block();
     }
 
 }
